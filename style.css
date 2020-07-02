@@ -57,7 +57,6 @@ ul {
 
 ul li {
   text-align: center;
-  padding: 0.5rem 0 0.5rem 0;
   cursor: pointer;
 }
 
@@ -166,7 +165,7 @@ h5 {
   height: 25rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
   margin-bottom: 8rem;
 }
@@ -269,6 +268,7 @@ h5 {
   justify-content: center;
   align-items: center;
   padding: 10rem 5rem;
+  min-width: 500px;
 }
 
 .line-break {
@@ -309,15 +309,19 @@ h5 {
 
 .projects {
   background: transparent;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
 }
 
 .project-card {
+  flex: 1 1 400px;
+  min-width: 400px;
   display: flex;
-  flex-flow: column;
+  flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  margin: 1rem;
-  width: 50%;
+  margin: 0.8rem;
   box-sizing: content-box;
   background: linear-gradient(
     to bottom,
@@ -326,6 +330,7 @@ h5 {
   );
   transition: all 0.1s linear;
   box-shadow: 10px 5px 5px rgb(108, 108, 108);
+  cursor: pointer;
 }
 
 .project-card:hover {
@@ -337,7 +342,99 @@ h5 {
   transform: scale(1.02);
 }
 
-.project-card p {
+.project-img {
+  background-color: #fff8ef;
+  width: 100%;
+}
+
+.project-img img {
+  width: 100%;
+  height: auto;
+}
+
+.project-title {
+  text-align: center;
+}
+
+.project-description p {
   padding: 1rem;
   text-align: justify;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .navbar {
+    height: 3rem;
+  }
+
+  .navigation {
+    top: 3rem;
+    width: 25rem;
+  }
+
+  .checkbox:checked ~ .navigation {
+    top: 3rem;
+  }
+
+  .line {
+    height: 0.15rem;
+    width: 1.5rem;
+    margin-bottom: 0.3rem;
+    margin-top: 0.1rem;
+  }
+
+  .line-1,
+  .line-3 {
+    width: 1.2rem;
+    transition: all 0.4s;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  h5 {
+    font-size: 1rem;
+  }
+
+  .navigation-link {
+    font-size: 1.3rem;
+    font-weight: 400;
+    transition: color 0.5s;
+  }
+
+  .navigation-link::before {
+    left: -3rem;
+  }
+
+  .navigation-link::after {
+    right: -3rem;
+  }
+
+  .navigation-link:hover::before,
+  .navigation-link:hover::after {
+    width: 2rem;
+  }
+
+  .navigation-list {
+    justify-content: space-evenly;
+  }
+
+  .checkbox:checked ~ .navbar .line-1 {
+    transform: rotate(-405deg) translate(-4px, 6px);
+    width: 1.6rem;
+  }
+
+  .checkbox:checked ~ .navbar .line-3 {
+    transform: rotate(405deg) translate(-4px, -6px);
+    width: 1.6rem;
+  }
+
+  .social-links {
+    font-size: 1.5rem;
+  }
+
+  .social-links a:hover {
+    color: #fff8ef;
+  }
 }
