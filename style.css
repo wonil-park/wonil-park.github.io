@@ -16,11 +16,12 @@ body {
 
 .navbar {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  height: 6rem;
-  width: 100%;
-  padding-left: 1rem;
+  height: 100%;
+  width: 6rem;
+  padding-top: 1rem;
   position: fixed;
   background: linear-gradient(45deg, rgba(136, 0, 0, 0.9), rgb(36, 0, 0));
   text-transform: uppercase;
@@ -52,12 +53,13 @@ body {
 ul {
   list-style: none;
   font-size: 1.5rem;
-  padding-left: 0;
+  width: 100%;
 }
 
 ul li {
-  text-align: center;
   cursor: pointer;
+  margin-left: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .menu a {
@@ -66,15 +68,16 @@ ul li {
 
 .social-links {
   display: flex;
-  justify-content: flex-end;
+  flex-direction: column;
+  justify-content: center;
   width: 100%;
   font-size: 2rem;
 }
 
 .social-links a {
   color: #ffd390;
+  padding-bottom: 2rem;
   transition: all 0.25s ease-in;
-  padding-right: 2rem;
 }
 
 .social-links a:hover {
@@ -120,7 +123,7 @@ ul li {
 .navigation {
   position: fixed;
   left: -34rem;
-  top: 6rem;
+  top: 0;
   width: 30rem;
   height: 100%;
   background: linear-gradient(
@@ -136,7 +139,7 @@ ul li {
   justify-content: space-between;
   align-items: center;
   transition: left 0.8s cubic-bezier(1, 0, 0, 1);
-  z-index: 10;
+  z-index: 5;
 }
 
 h3 {
@@ -216,8 +219,7 @@ h5 {
 }
 
 .checkbox:checked ~ .navigation {
-  left: 0;
-  top: 6rem;
+  left: 6rem;
 }
 
 .checkbox:checked ~ .navbar .line-1 {
@@ -232,6 +234,10 @@ h5 {
 .checkbox:checked ~ .navbar .line-3 {
   transform: rotate(405deg) translate(-12px, -6px);
   width: 2.5rem;
+}
+
+.main {
+  margin-left: 6rem;
 }
 
 .parallax-container {
@@ -267,7 +273,7 @@ h5 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 10rem 5rem;
+  padding: 5rem 5rem;
   min-width: 500px;
 }
 
@@ -321,8 +327,9 @@ h5 {
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  padding: 2.5rem auto;
   margin: 0.8rem;
-  box-sizing: content-box;
+  box-sizing: border-box;
   background: linear-gradient(
     to bottom,
     rgba(255, 255, 255, 0.6),
@@ -336,7 +343,7 @@ h5 {
 .project-card:hover {
   background: linear-gradient(
     to bottom,
-    rgba(255, 255, 255, 0.858),
+    rgba(255, 255, 255, 0.913),
     rgba(255, 234, 151, 0.584)
   );
   transform: scale(1.02);
@@ -365,6 +372,13 @@ h5 {
 @media (max-width: 768px) {
   .navbar {
     height: 3rem;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 1rem;
+    padding-top: 0;
+    position: fixed;
   }
 
   .navigation {
@@ -397,6 +411,14 @@ h5 {
     font-size: 1rem;
   }
 
+  ul {
+    font-size: 1rem;
+  }
+
+  ul li {
+    margin-bottom: 0;
+  }
+
   .navigation-link {
     font-size: 1.3rem;
     font-weight: 400;
@@ -420,6 +442,11 @@ h5 {
     justify-content: space-evenly;
   }
 
+  .checkbox:checked ~ .navigation {
+    top: 3rem;
+    left: 0;
+  }
+
   .checkbox:checked ~ .navbar .line-1 {
     transform: rotate(-405deg) translate(-4px, 6px);
     width: 1.6rem;
@@ -431,10 +458,28 @@ h5 {
   }
 
   .social-links {
+    width: auto;
     font-size: 1.5rem;
+    flex-direction: row;
+    justify-content: center;
+    margin-right: 1.5rem;
+  }
+
+  .social-links a {
+    padding-bottom: 0;
+    padding-right: 1rem;
   }
 
   .social-links a:hover {
     color: #fff8ef;
+  }
+
+  .main {
+    margin-left: 0;
+  }
+
+  .project-card {
+    flex: 1 1 300px;
+    min-width: 300px;
   }
 }
